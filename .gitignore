@@ -1,0 +1,7 @@
+__pycache__
+event_merge_type.*
+eventos_data.*
+*.csv
+*.xlsx
+*.txt
+todo.md

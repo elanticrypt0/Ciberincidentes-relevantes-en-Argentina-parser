@@ -17,7 +17,7 @@ Para utilizar esto hay que correr dos scripts.
 
 ## Parser
 
-El primero parseará el archivo .xlsx del (timeline creado por Marcela Pallero)[https://time.graphics/es/line/630567] y generará un archivo **eventos_procesados.csv**
+El primero parseará el archivo .xlsx del [timeline creado por Marcela Pallero](https://time.graphics/es/line/630567) y generará un archivo **eventos_procesados.csv**
 
 ## Importante:
 

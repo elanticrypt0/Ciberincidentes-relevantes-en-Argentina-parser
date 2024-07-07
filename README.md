@@ -38,6 +38,10 @@ python3 parse_events.ipynb
 
 Con Jupyter se puede exportar a un archivo .html o pdf
 
+# Ejemplo
+
+Puede verse un [ejemplo de los datos reflejados](export_example.html)
+
 # Referencias de pandas
 
 (Tutorial de pandas)[https://www.datacamp.com/es/tutorial/pandas]

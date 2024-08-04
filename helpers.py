@@ -1,6 +1,16 @@
 import re
 import ast
 
+""" obtiene los nombres de los meses """
+def get_month_name(x):
+     meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"]
+     return meses[x]
+
+""" Normaliza el ordend el df"""
+
+def normalize_df(df_in):
+     return df_in[["id","evento","descripcion","fecha","anio","mes","tag","organismo","organismo_tipo","ciudad","nota"]]
+
 """" Esta función lo que hace es corregir nombres de diferentes tags """
 def normalize_tag(tag):
     # limpia el tag
@@ -10,8 +20,6 @@ def normalize_tag(tag):
      # corrije los nombres del tag
     if (tag==""):
         tag="no-especificado"
-    elif(tag=="play"):
-         tag="playcript"
     elif(tag=="interrupcióndelervicio"):
          tag="dos"
     elif(tag=="cordoba"):
@@ -24,7 +32,10 @@ def normalize_tag(tag):
          return False
     elif(tag=="ffaa"):
         return False
-    
+    elif(tag=="akira" or tag=="medusa" or tag=="rhysida" or tag=="revil" or tag=="hive" or tag=="play" or tag=="playcript" or tag=="lockbit" or tag=="netwalker" or tag=="egregor"):
+     #     Estos son tipos de ransomware que se descartan. Para no modificar las estadísticas. Ya están contados como ransomware
+         return False
+
     return tag
 
 def add_to_tag_unique(tag_list,tag):
@@ -75,3 +86,12 @@ def get_hashes(texto):
 # EJ: df_tag_grouped.plot.pie(y='tags',autopct=autopct,subplots=True,figsize=(SIZE_X, SIZE_Y),)
 def autopct(pct): # only show the label when it's > 10%
     return ('%.2f' % pct) if pct > 10 else ''
+
+""" Agrega el 0 delante del mes """
+def agregar_cero_mes(mes):
+    # Verificamos si el mes es un número y es menor a 10
+    if mes.isdigit() and int(mes) < 10:
+        # Añadimos un cero delante y devolvemos el nuevo string
+        return mes.zfill(2)
+    # Si ya tiene el formato correcto o no es un número, simplemente lo devolvemos
+    return mes

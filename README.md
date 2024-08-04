@@ -1,6 +1,7 @@
 # Script para graficar los ciberincidentes relevantes en Argentina
 
 ### Fuente de datos: Timeline realizado por Marcela Pallero
+### Fuente de datos: Datos en fuga datosenfuga.org
 
 # instalar
 
@@ -11,22 +12,44 @@ jupyter notebook [tutorial](https://python.land/data-science/jupyter-notebook)
 pip install -r requirements.txt
 ```
 
-# Uso
+# Instrucciones
 
-Para utilizar esto hay que correr dos scripts.
+Primero que nada descargar las fuentes de datos para poder trabajar con ellas:
 
-## Parser
+[timeline creado por Marcela Pallero](https://time.graphics/es/line/630567)
+[Data set de Datos en fuga](https://docs.google.com/spreadsheets/d/1J08Xeu2yuttfuBVT6dFeRCADBe-y9FsOAiqBv74MUAU/edit?gid=1638781659#gid=1638781659)
 
-El primero parseará el archivo .xlsx del [timeline creado por Marcela Pallero](https://time.graphics/es/line/630567) y generará un archivo **eventos_procesados.csv**
 
-## Importante:
+## Converter
 
-El archivo descargo debe ser en formato .xlsx y la ubicación por defecto es en la misma carpeta. El nombre puede cambiarse desde el mismo archivo.
+### Timeline de Marcela Pallero
+
+El primero parseará el archivo .xlsx del [timeline creado por Marcela Pallero](https://time.graphics/es/line/630567) y generará un archivo **eventos_procesados_timeline.csv**
+
+**Importante: El archivo descargo debe ser en formato .xlsx y la ubicación por defecto es en la misma carpeta. El nombre puede cambiarse desde el mismo archivo.**
 
 ```python
-python3 convert.ipynb
+python3 convert_timeline.ipynb
 ```
-## Visualizador
+
+### Datosenfuga
+
+El primero parseará el archivo .xlsx del [Data set de Datos en fuga](https://docs.google.com/spreadsheets/d/1J08Xeu2yuttfuBVT6dFeRCADBe-y9FsOAiqBv74MUAU/edit?gid=1638781659#gid=1638781659) y se guardará en el archivo **eventos_procesados_datosenfuga.csv**
+
+```python
+python3 convert_datosenfuga.ipynb
+```
+
+
+## Mezclar los datos
+
+Para mezclar los datos y evitar que haya duplicados deberá realizarse una mezcla de datos. Esto dará como resultado en el archivo **eventos_procesados.csv** para trabajar luego.
+
+```python
+python3 merge_data.ipynb
+```
+
+## Parser
 
 Una vez creado ese archivo entonces se procede a parsearlo para ver los resultados
 
